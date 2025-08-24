@@ -22,4 +22,7 @@ rocksdb = { version = "0.20", optional = true }
 sled = { version = "0.34", optional = true }
 clap = { version = "4.3", features = ["derive"] }
 toml = "0.7"
-consistent-hash-ring = "0.8"
+consistent_hash_ring = "0.8"
+
+[dev-dependencies]
+tokio-test = "0.4"

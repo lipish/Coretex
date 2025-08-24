@@ -1,6 +1,4 @@
-coretex/src/messaging/mod.rs
-```
-```coretex/src/messaging/mod.rs#L1-46
+
 use async_trait::async_trait;
 use bytes::Bytes;
 use futures::Stream;
@@ -50,7 +48,7 @@ pub mod memory {
     use futures::stream;
     use std::collections::HashMap;
     use std::sync::{Arc, Mutex};
-    use tokio::sync::mpsc::{UnboundedSender, UnboundedReceiver, unbounded_channel};
+    use tokio::sync::mpsc::{UnboundedSender, unbounded_channel};
 
     #[derive(Clone)]
     pub struct InMemoryBroker {

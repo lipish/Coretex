@@ -1,8 +1,5 @@
-coretex/src/distribution/mod.rs
-```
-```coretex/src/distribution/mod.rs#L1-38
+
 use async_trait::async_trait;
-use bytes::Bytes;
 use std::collections::HashMap;
 
 /// 分布式哈希环节点信息
@@ -97,7 +94,7 @@ impl DistributionStrategy for ConsistentHashRing {
 // 简单 hash 函数依赖
 mod fxhash {
     pub fn hash64(data: &[u8]) -> u64 {
-        use std::hash::{Hasher, BuildHasherDefault};
+        use std::hash::Hasher;
         use std::collections::hash_map::DefaultHasher;
         let mut hasher = DefaultHasher::new();
         hasher.write(data);

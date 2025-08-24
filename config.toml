@@ -1,0 +1,16 @@
+[node]
+bind_address = "127.0.0.1:8080"
+data_dir = "./data"
+seed_nodes = []
+
+[storage]
+engine = "memory"
+
+[replication]
+factor = 3
+read_quorum = 2
+write_quorum = 2
+
+[consistency]
+mode = "Eventual"
+vector_clock_enabled = false

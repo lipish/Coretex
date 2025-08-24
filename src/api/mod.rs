@@ -1,6 +1,4 @@
-coretex/src/api/mod.rs
-```
-```coretex/src/api/mod.rs#L1-54
+
 use async_trait::async_trait;
 use bytes::Bytes;
 use crate::Result;

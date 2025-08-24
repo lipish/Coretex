@@ -1,4 +1,4 @@
-use crate::{Result, Error};
+use crate::Result;
 use super::{KeyValue, StorageEngine, WriteOperation};
 use async_trait::async_trait;
 use bytes::Bytes;
