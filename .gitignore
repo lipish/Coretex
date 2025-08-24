@@ -1,0 +1,11 @@
+.DS_Store
+target/
+**/*.rs.bk
+Cargo.lock
+*.swp
+*.swo
+.idea/
+.vscode/
+*.log
+node_modules/
+.env
