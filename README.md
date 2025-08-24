@@ -1,48 +1,48 @@
 # Coretex
 
-Coretex 是一个用 Rust 编写的高性能分布式存储系统，灵感来源于 Amazon Dynamo，架构灵活、可插拔，适合分布式 KV 存储、配置中心等场景。
+Coretex is a high-performance distributed storage system written in Rust, inspired by Amazon Dynamo. It features a modular, pluggable architecture suitable for distributed KV storage, configuration centers, and more.
 
-## 特点
+## Features
 
-- **无第三方强依赖**：不依赖 ETCD、Nats、NIXL 等外部服务，核心功能全部自实现。
-- **模块化设计**：存储引擎、成员管理、消息通信、一致性、分布策略等均为 trait，可灵活扩展和替换。
-- **异步高性能**：基于 Rust async/await 和 tokio，充分发挥多核性能。
-- **易于扩展**：支持内存、RocksDB、Sled 等多种存储后端，支持自定义一致性和分布策略。
-- **适合学习与生产**：代码结构清晰，便于二次开发和分布式系统学习。
+- **No Strong Third-party Dependencies**: No reliance on ETCD, Nats, NIXL, or other external services. All core functions are self-implemented.
+- **Modular Design**: Storage engine, membership, messaging, consistency, and distribution strategies are all defined as traits, making them easy to extend or replace.
+- **Async High Performance**: Built on Rust async/await and tokio, fully leveraging multicore performance.
+- **Easy to Extend**: Supports in-memory, RocksDB, Sled, and other storage backends. Custom consistency and distribution strategies are supported.
+- **Great for Learning and Production**: Clear code structure, suitable for secondary development and distributed systems education.
 
-## 目录结构
+## Directory Structure
 
 ```
 coretex/
 ├── Cargo.toml
 ├── src/
-│   ├── main.rs            # 程序入口
-│   ├── lib.rs             # 核心库
-│   ├── error.rs           # 错误定义
-│   ├── storage/           # 存储引擎 trait 及实现
-│   ├── membership/        # 节点成员管理
-│   ├── messaging/         # 消息通信
-│   ├── consistency/       # 一致性管理
-│   ├── config/            # 配置系统
-│   ├── distribution/      # 数据分布策略
-│   ├── api/               # 客户端 API
-│   └── utils/             # 工具模块
-└── examples/              # 示例
+│   ├── main.rs            # Entry point
+│   ├── lib.rs             # Core library
+│   ├── error.rs           # Error definitions
+│   ├── storage/           # Storage engine traits & implementations
+│   ├── membership/        # Node membership management
+│   ├── messaging/         # Messaging layer
+│   ├── consistency/       # Consistency management
+│   ├── config/            # Configuration system
+│   ├── distribution/      # Data distribution strategies
+│   ├── api/               # Client API
+│   └── utils/             # Utility modules
+└── examples/              # Usage examples
 ```
 
-## 快速开始
+## Quick Start
 
-1. **编译项目**
+1. **Build the project**
    ```bash
    cargo build
    ```
 
-2. **运行节点**
+2. **Run a node**
    ```bash
    cargo run -- ./config.toml
    ```
 
-3. **示例配置文件**
+3. **Example configuration file**
    ```toml
    [node]
    bind_address = "127.0.0.1:9000"
@@ -62,22 +62,22 @@ coretex/
    vector_clock_enabled = true
    ```
 
-4. **本地客户端调用**
-   可直接通过 API 或 examples 目录下的用例进行测试。
+4. **Local client usage**
+   You can test via the API or the examples in the `examples` directory.
 
-## 主要模块说明
+## Main Modules
 
-- `storage`：存储引擎接口与实现（如内存、RocksDB、Sled）
-- `membership`：节点注册、状态变更、成员发现
-- `messaging`：节点间消息通信（内存实现，后续可扩展 TCP、gRPC 等）
-- `consistency`：一致性协议与冲突解决
-- `distribution`：一致性哈希等分布策略
-- `config`：配置加载与热更新
-- `api`：客户端 API
+- `storage`: Storage engine interfaces and implementations (e.g., in-memory, RocksDB, Sled)
+- `membership`: Node registration, state changes, and membership discovery
+- `messaging`: Inter-node messaging (in-memory implementation, extensible to TCP/gRPC, etc.)
+- `consistency`: Consistency protocols and conflict resolution
+- `distribution`: Consistent hashing and other distribution strategies
+- `config`: Configuration loading and hot-reloading
+- `api`: Client API
 
-## 贡献
+## Contributing
 
-欢迎提交 Issue 和 PR，或提出架构建议！
+Issues and PRs are welcome! Suggestions for architecture are also appreciated.
 
 ## License
 
@@ -85,4 +85,4 @@ MIT License
 
 ---
 
-本项目由 [lipish](https://github.com/lipish) 维护。
+Maintained by [lipish](https://github.com/lipish).
