@@ -1,5 +1,4 @@
-coretex/src/config/memory.rs
-```
+
 use super::{ConfigProvider, Config, ConfigChange};
 use crate::Result;
 use async_trait::async_trait;

@@ -1,7 +1,4 @@
-coretex/src/main.rs
-```
-```coretex/src/main.rs#L1-38
-use coretex::config::FileConfigProvider;
+use coretex::config::{FileConfigProvider, ConfigProvider};
 use coretex::membership::InMemoryMembership;
 use coretex::storage::InMemoryEngine;
 use coretex::{Coretex, Result};
@@ -21,7 +18,7 @@ async fn main() -> Result<()> {
     };
 
     // 加载配置
-    let config_provider = FileConfigProvider::new(config_path)?;
+    let config_provider = FileConfigProvider::new(config_path);
     let config = Arc::new(config_provider.get_config().await?);
 
     // 初始化存储引擎
@@ -39,8 +36,8 @@ async fn main() -> Result<()> {
     let membership: Arc<dyn coretex::membership::MembershipManager> = Arc::new(InMemoryMembership::new());
 
     // 初始化通信层和一致性层（此处为占位）
-    let messaging = Arc::new(coretex::messaging::InMemoryBroker::new());
-    let consistency = Arc::new(coretex::consistency::SimpleConsistencyManager::new());
+    let messaging = Arc::new(coretex::messaging::memory::InMemoryBroker::new("main"));
+    let consistency = Arc::new(coretex::consistency::DummyConsistencyManager);
 
     // 构建 Coretex 实例
     let _coretex = Coretex {
