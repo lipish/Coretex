@@ -22,7 +22,7 @@ pub struct Coretex {
     pub consistency: Arc<dyn consistency::ConsistencyManager>,
 }
 
-pub async fn start(config_path: &str) -> Result<Coretex> {
+pub async fn start(_config_path: &str) -> Result<Coretex> {
     // 初始化系统的实现将在这里
     unimplemented!()
 }

@@ -32,6 +32,41 @@ coretex/
 
 ## Quick Start
 
+### Basic Usage
+
+```bash
+# Run the basic demo
+cargo run --example basic_demo
+
+# Run with custom config
+cargo run -- config.toml
+
+# Run tests
+cargo test
+```
+
+### API Example
+
+```rust
+use coretex::storage::{StorageEngine, InMemoryEngine};
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    // Create a storage engine
+    let storage = InMemoryEngine::new("my-store");
+    
+    // Store data
+    storage.put(b"key1", b"value1").await?;
+    
+    // Retrieve data
+    if let Some(value) = storage.get(b"key1").await? {
+        println!("Retrieved: {}", String::from_utf8_lossy(&value));
+    }
+    
+    Ok(())
+}
+```
+
 1. **Build the project**
    ```bash
    cargo build

@@ -48,7 +48,7 @@ pub mod memory {
     use futures::stream;
     use std::collections::HashMap;
     use std::sync::{Arc, Mutex};
-    use tokio::sync::mpsc::{UnboundedSender, UnboundedReceiver, unbounded_channel};
+    use tokio::sync::mpsc::{UnboundedSender, unbounded_channel};
 
     #[derive(Clone)]
     pub struct InMemoryBroker {
